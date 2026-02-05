@@ -17,7 +17,7 @@ import NotFound from './components/NotFound';
 import Gallery from './components/Gallery';
 import AdminPage from './common/AdminPage';
 import Login from './common/Login';
-import TermsAndPrivacy from './common/TermsAndPrivacy';]
+import TermsAndPrivacy from './common/TermsAndPrivacy';
 import CookieBanner from './common/CookieBanner';
 
 function App() {
