@@ -8,8 +8,6 @@ import {
   FaQuoteLeft,
   FaStar,
   FaStarHalfAlt,
-  FaSeedling,
-  FaBirthdayCake,
   FaBriefcase,
 } from "react-icons/fa";
 import { MdSupportAgent } from 'react-icons/md';
@@ -20,7 +18,7 @@ const Amenities = () => {
   return (
     <>
       {/* Amenities Section */}
-      <section id="amenities" className="py-5 bg-white">
+      <section id="amenities" className="py-5 gallery-container">
         <div className="container">
           <div className="text-center mb-5">
             <h2
@@ -33,7 +31,7 @@ const Amenities = () => {
               className="mx-auto mb-4"
               style={{ width: "80px", height: "4px", backgroundColor: "#D97706" }}
             />
-            <p className="text-secondary mx-auto" style={{ maxWidth: "768px" }}>
+            <p className="text-light mx-auto" style={{ maxWidth: "768px" }}>
               Every detail of your stay has been considered. Enjoy our
               comprehensive range of world-class amenities designed for your
               comfort and convenience.
@@ -42,55 +40,56 @@ const Amenities = () => {
 
           <div className="row g-4">
             {[
-        {
-    Icon: FaWifi,
-    title: "High-Speed WiFi",
-    desc: "Enjoy seamless connectivity with high-speed internet available throughout your stay.",
-    color: "#3B82F6", // Sky blue
-  },
-  {
+       {
+  Icon: FaWifi,
+  title: "Free Wi-Fi",
+  desc: "Stay connected while you chill ,complimentary Wi-Fi available throughout the lounge.",
+  color: "#3B82F6",
+},
+{
   Icon: MdSupportAgent,
-  title: "24/7 Concierge",
-  desc: "Experience personalized service anytime—our concierge is available day and night to assist.",
-  color: "#8B5CF6", // Violet
+  title: "Customer Service",
+  desc: "Friendly staff always on hand to take orders, assist with seating, and keep the vibes smooth.",
+  color: "#8B5CF6",
+},
+{
+  Icon: FaUtensils,
+  title: "Room Service",
+  desc: "Order food and drinks straight to your room and enjoy great flavors without missing a moment of comfort.",
+  color: "#10B981",
 },
 
-  {
-    Icon: FaUtensils,
-    title: "Luncheon Buffet",
-    desc: "Delight in a variety of gourmet options at our chef-curated anyday to anytime buffet.",
-    color: "#10B981", // Green
-  },
-  {
-    Icon: FaBriefcase,
-    title: "Conference deluxe",
-    desc: "Host your meetings in style with modern conference rooms and professional support.",
-    color: "#F97316", // Orange
-  },
-  {
-    Icon: FaConciergeBell,
-    title: "Room Service",
-    desc: "Dine in the comfort of your room with our 24-hour room service offering international cuisine.",
-    color: "#EF4444", // Red
-  },
-  {
-    Icon: FaBirthdayCake,
-    title: "Kid's Birthdays",
-    desc: "Celebrate memorable moments with themed parties and entertainment for children.",
-    color: "#F59E0B", // Amber
-  },
-  {
-    Icon: FaParking,
-    title: "Valet Parking",
-    desc: "Enjoy the convenience of complimentary valet parking available for all guests with ample parking.",
-    color: "#6B7280", // Gray
-  },
-  {
-    Icon: FaSeedling,
-    title: "Indoor Garden",
-    desc: "Relax in our tranquil indoor garden space with lush greenery and natural ambiance.",
-    color: "#22C55E", // Emerald green
-  },
+{
+  Icon: FaBriefcase,
+  title: "Private Lounge Seating",
+  desc: "Comfortable seating for groups, celebrations, and relaxed nights out with friends.",
+  color: "#F97316",
+},
+{
+  Icon: FaConciergeBell,
+  title: "Table Service",
+  desc: "Premium table service for drinks and bottles, ensuring a seamless nightlife experience.",
+  color: "#EF4444",
+},
+{
+  Icon: FaParking,
+  title: "Secure Parking & Car Wash",
+  desc: "Convenient parking with optional car wash services while you enjoy your night.",
+  color: "#6B7280",
+},
+{
+  Icon: FaUtensils,
+  title: "Grill & BBQ Nights",
+  desc: "Savor delicious grilled meals and BBQ delights prepared fresh in our lounge kitchen.",
+  color: "#F97316",
+},
+{
+  Icon: FaConciergeBell,
+  title: "Relatable parties",
+  desc: "we host parties and group events with customized setups, music, and full-service support relatable to everyone.",
+  color: "#EF4444",
+},
+
             ].map(({ Icon, title, desc }) => (
               <div key={title} className="col-12 col-md-6 col-lg-3">
                 <div className="amenity-card">
@@ -107,7 +106,7 @@ const Amenities = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="testimonial-section py-3 m-2">
+      <section className="testimonial-section py-3 m-2 ">
         <div className="container">
           <div className="text-center mb-5">
             <h2
@@ -122,67 +121,75 @@ const Amenities = () => {
             />
             <p className="text-secondary mx-auto text text-dark fs-4" style={{ maxWidth: "768px" }}>
               <i>"Hear what our guests have to say about their unforgettable
-              experiences at Shanvilla."</i>
+              experiences at X Nightlife lounge."</i>
             </p>
           </div>
 
-          <Carousel autoplay className="max-w-4xl mx-auto" style={{ maxWidth: "768px" }}>
+          <Carousel
+  autoplay
+  autoplaySpeed={4000}   // 6 seconds per slide (nice & smooth)
+  className="max-w-4xl mx-auto"
+  style={{ maxWidth: "768px" }}
+>
+
             {[
-              {
-                text: "Our stay at Shanvilla exceeded all expectations. The attention to detail, impeccable service, and breathtaking views created an experience we'll never forget. The staff went above and beyond to make our anniversary truly special.",
-                author: "Robert & Sarah Johnson",
-                rating: 5,
-              },
-                 {
-      text: "Our stay at Shanvilla was truly refreshing. The peaceful surroundings and attentive staff made our getaway special. The rooms were clean and comfortable with stunning views of the nearby hills.",
-      author: "Emily R.",
-      rating: 4.5,
-    },
+              
     {
-      text: "We loved the warm hospitality and the beautiful gardens around the resort. The breakfast spread was delightful, and the quiet atmosphere helped us unwind completely.",
-      author: "David Musa.",
-      rating: 4,
-    },
-    {
-      text: "Shanvilla offers a perfect blend of comfort and nature. The on-site amenities were well-maintained, and the staff was always eager to help with any requests. We especially enjoyed the guided nature walks nearby.",
-      author: "Sarah Karanja.",
-      rating: 5,
-    },
-    {
-      text: "A great place for families or couples looking for some peace away from the city. The kids enjoyed the open spaces, and we appreciated the cozy rooms and friendly service.",
-      author: "The Mwangi Family",
-      rating: 4.5,
-    },
-    {
-      text: "The resort exceeded our expectations in terms of tranquility and service. The local cuisine offered at their restaurant was a delicious treat, and the views from the balcony were breathtaking.",
-      author: "James & Linda P.",
-      rating: 5,
-    },
-    {
-      text: "Quiet, comfortable, and beautifully landscaped – Shanvilla made our trip memorable. The staff's attention to detail and genuine friendliness made us feel right at home.",
-      author: "Grace Wanjiku.",
-      rating: 4.5,
-    },
-              {
-                text: "From the moment we arrived, we were treated like royalty. The staff treatments were exceptional, and the ambience is even more beautiful than the pictures. We've already booked our return visit for next year.",
-                author: "Michael & Jennifer Chen",
-                rating: 5,
-              },
-              {
-                text: "The staff's warmth and professionalism made us feel right at home. Every meal was a delight, and the serene gardens provided a perfect escape. Shanvilla is truly a paradise retreat.",
-                author: "Linda & Mark Thompson",
-                rating: 4.5,
-              },
-              {
-                text: "A breathtaking location combined with impeccable service. We loved every moment at Shanvilla, especially the sunset yoga sessions on the terrace. Can't wait to return next season.",
-                author: "Anita & Raj Patel",
-                rating: 5,
-              },
-              {
-                text: "Our family loved the spacious suites and kid-friendly amenities. The activities organized for children kept them entertained while we relaxed. Shanvilla is the perfect family getaway.",
-                author: "The Garcia Family",
-                rating: 5,
-              },
+  text: "Our night at Shanvilla Lounge blew us away. From the music to the lighting and top-tier service, every detail was on point. The staff made our anniversary night unforgettable.",
+  author: "Robert & Sarah Johnson",
+  rating: 5,
+},
+{
+  text: "A refreshing spot to unwind and enjoy the night. Great atmosphere, attentive staff, and comfortable seating made it a perfect place to relax with friends.",
+  author: "Emily R.",
+  rating: 4.5,
+},
+{
+  text: "We loved the warm hospitality and the stylish outdoor setup. Drinks were well crafted, the music was just right, and the vibe helped us completely unwind.",
+  author: "David Musa.",
+  rating: 4,
+},
+{
+  text: "Shanvilla Lounge strikes the perfect balance between comfort and nightlife. The ambience is well curated, the service is smooth, and the overall experience feels premium.",
+  author: "Sarah Karanja.",
+  rating: 5,
+},
+{
+  text: "A great spot for couples or groups looking to enjoy a laid-back evening away from the city buzz. Cozy seating, good music, and friendly service made it a win for us.",
+  author: "The Mwangi Family",
+  rating: 4.5,
+},
+{
+  text: "The lounge exceeded our expectations. The drinks menu was impressive, the food paired perfectly, and the views added an extra touch to the night.",
+  author: "James & Linda P.",
+  rating: 5,
+},
+{
+  text: "Relaxed, stylish, and welcoming — Shanvilla Lounge made our evening memorable. The staff’s attention and the overall vibe made us want to stay longer.",
+  author: "Grace Wanjiku.",
+  rating: 4.5,
+},
+{
+  text: "From the moment we walked in, the experience felt premium. Exceptional service, great ambience, and even better energy than the photos. We’re definitely coming back.",
+  author: "Michael & Jennifer Chen",
+  rating: 5,
+},
+{
+  text: "The staff’s warmth and professionalism set the tone for a great night. Every drink was perfectly mixed, and the ambience made it easy to relax and enjoy the moment.",
+  author: "Linda & Mark Thompson",
+  rating: 4.5,
+},
+{
+  text: "An incredible location paired with flawless service. The sunset views, music, and lounge setup made the night unforgettable. Already planning our next visit.",
+  author: "Anita & Raj Patel",
+  rating: 5,
+},
+{
+  text: "Spacious seating, great music, and a welcoming vibe made this a fantastic night out. Everyone found something to enjoy — definitely a go-to lounge spot.",
+  author: "The Garcia Family",
+  rating: 5,
+},
+
             ].map(({ text, author, rating }, i) => (
               <div key={i} className="px-3 pb-4 text-center">
                 <div className="testimonial-quote">

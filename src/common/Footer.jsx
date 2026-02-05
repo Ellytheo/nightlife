@@ -5,7 +5,13 @@ import { motion } from 'framer-motion';
 import { FiSend } from 'react-icons/fi';
 
 const FooterContainer = styled.footer`
-  background: #0a2540;
+  background: linear-gradient(
+    135deg,
+    #14253a 20%,
+    #081835 30%,
+    #1a5e13 75%,
+    #1a0a33 100%
+  );
   color: #f5f7fa;
   padding: 4rem 1.5rem;
 `;
@@ -55,7 +61,7 @@ const SocialLinks = styled.div`
     transition: color 0.3s ease;
 
     &:hover {
-      color:rgb(221, 189, 8);
+      color:rgba(8, 221, 61, 1);
     }
   }
 `;
@@ -185,31 +191,31 @@ const Footer = () => {
     <FooterContainer>
       <FooterGrid>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1} variants={fadeIn}>
-          <FooterTitle>SHANVILLA RESORT LTD</FooterTitle>
+          <FooterTitle>XNightlife Lounge</FooterTitle>
           <ContactText>
-            Experience unparalleled comfort and authentic Kenyan warmth in Maragua, Murang’a County.
+Bringing the night to life in Murang'a with good vibes, great sounds, and authentic local warmth.
           </ContactText>
           <SocialLinks>
-            <a href="https://www.facebook.com/search/top/?q=Shanvilla%20Resort%20KE"><FaFacebookF /></a>
-            <a href="https://www.instagram.com/shanvillaresort/"><FaInstagram /></a>
-            <a href="https://www.tiktok.com/discover/shanvilla-resort-in-maragua"><FaTiktok /></a>
+            <a href="https://www.facebook.com/p/X-Nightlife-LoungeGrill-Carwash-61569305692682/"><FaFacebookF /></a>
+            <a href="https://www.instagram.com/xnightlife.lounge/"><FaInstagram /></a>
+            <a href="https://www.tiktok.com/@xnightlife.lounge"><FaTiktok /></a>
           </SocialLinks>
         </motion.div>
 
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={2} variants={fadeIn}>
           <FooterTitle>Quick Links</FooterTitle>
-          <FooterLink href="/rooms">Rooms & Suites</FooterLink>
+          <FooterLink href="/rooms"></FooterLink>
           <FooterLink href="/about">about</FooterLink>
           <FooterLink href="/amenities">Amenities</FooterLink>
-          <FooterLink href="/reviews">Booking</FooterLink>
+          <FooterLink href="/reviews">Gallery</FooterLink>
           <FooterLink href="/contact">Contact Us</FooterLink>
         </motion.div>
 
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={3} variants={fadeIn}>
           <FooterTitle>Contact</FooterTitle>
-          <ContactText>Maragua, Murang’a County, Kenya</ContactText>
-          <ContactText>Phone: +254 111427894</ContactText>
-          <ContactText>Email: reception@shanvillaresortkenya.co.ke</ContactText>
+          <ContactText>Murang'a Town, Murang’a County, Kenya</ContactText>
+          <ContactText>Phone: +254 ##########</ContactText>
+          <ContactText>Email: #######@########.co.ke</ContactText>
         </motion.div>
 
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={4} variants={fadeIn}>
@@ -238,7 +244,7 @@ const Footer = () => {
       <Divider />
 
       <BottomRow>
-        <div>© {new Date().getFullYear()} Shanvilla Resort Ltd. All rights reserved.</div>
+        <div>© {new Date().getFullYear()} X Nightlife Lounge. All rights reserved.</div>
         <div>
           <a href="/terms">Privacy Policy</a>
           <a href="/terms">Terms & Conditions</a>

@@ -45,7 +45,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" style={{ padding: '40px 20px', backgroundColor: '#fff' }}>
+    <section id="contact" className="gallery-container" style={{ padding: '40px 20px',  }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 15px' }}>
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 64 }}>
@@ -55,11 +55,12 @@ const ContactSection = () => {
               fontSize: '2rem',
               fontFamily: 'Kaushan Script, cursive',
               color: '#FF0000',
+              backgroundColor:'#201c58',
               maxWidth: 400,
               margin: '0 auto 16px',
             }}
           >
-            Contact Shanvilla Resort
+            Contact X Nightlife Lounge
           </h2>
           <div
             style={{
@@ -71,15 +72,15 @@ const ContactSection = () => {
           />
           <p
             style={{
-              color: '#000',
-              fontSize: '1.75rem',
+              color: 'rgb(200, 200, 216)',
+              fontSize: '2rem',
               maxWidth: 700,
               margin: '0 auto',
-              fontFamily: 'Sevillana, cursive',
+              fontFamily: 'are you serious, cursive',
               lineHeight: 1.4,
             }}
           >
-            Planning your getaway or need assistance? We're here 24/7 to make your stay seamless and memorable.
+            Planning your night out or need assistance? We’re here all night to keep the drinks flowing and the vibes unforgettable.
           </p>
         </div>
 
@@ -107,7 +108,7 @@ const ContactSection = () => {
                   textAlign: 'center',
                 }}
               >
-                Resort Information
+                Lounge Information
               </h3>
 
              {[
@@ -116,8 +117,8 @@ const ContactSection = () => {
     title: 'Address',
     content: (
       <>
-        Shanvilla Resort Ltd<br />
-        Maragua, Murang'a County<br />
+        Xnightlife lounge<br />
+        Murang'a Town, Murang'a County<br />
         Kenya
       </>
     ),
@@ -125,12 +126,12 @@ const ContactSection = () => {
   {
     icon: <PhoneOutlined style={{ fontSize: 26, color: '#A21B23' }} />,
     title: 'Phone',
-    content: <>+254 111427894</>,
+    content: <>+254 ###########</>,
   },
   {
     icon: <MailOutlined style={{ fontSize: 26, color: '#A21B23' }} />,
     title: 'Email',
-    content: <>reception@shanvillaresortkenya.co.ke</>,
+    content: <>############@######.###</>,
   },
   {
     icon: <ClockCircleOutlined style={{ fontSize: 26, color: '#A21B23' }} />,
@@ -161,7 +162,7 @@ const ContactSection = () => {
           <Col xs={24} md={12}>
             <div
               style={{
-                backgroundColor: '#d0ebff',
+                backgroundColor: '#1d375e',
                 borderRadius: 12,
                 padding: 40,
                 height: '100%',
@@ -238,7 +239,7 @@ const ContactSection = () => {
           }}
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.4343610196247!2d37.13265537397124!3d-0.7948902352843993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1828a5002657145f%3A0xbb670eb1d023578!2sShanVilla!5e0!3m2!1sen!2ske!4v1751955495284!5m2!1sen!2ske"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d67608.40102103521!2d37.05846115750545!3d-0.7269797719971265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1828990058d94793%3A0x4053513ec1984c5f!2sNight%20life%20lounge%20muranga!5e1!3m2!1sen!2ske"
             width="100%"
             height="100%"
             style={{ border: 0 }}

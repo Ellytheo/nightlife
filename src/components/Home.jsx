@@ -3,11 +3,12 @@ import styled, { keyframes } from "styled-components";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-import dis1 from '../images/shan1.jpg';
-import dis2 from '../images/shan3.jpg';
-import dis3 from '../images/shan2.jpg';
-import dis4 from '../images/shan4.jpg';
-import dis5 from '../images/elly.jpg';
+import pic1 from '../images/c.jpeg';
+import pic16 from '../images/pic16.jpg';
+import pic3 from '../images/s.jpeg';
+import pic4 from '../images/aa.jpeg';
+import pic20 from '../images/pic20.jpg';
+import logo from '../images/logo1.png';
 
 const zoom = keyframes`
   0%, 100% {
@@ -45,7 +46,7 @@ const HeroSection = styled.section`
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80");
+  background-image: url(${pic20});
   background-size: cover;
   background-position: center;
   filter: brightness(1) contrast(1) saturate(1.05);
@@ -140,7 +141,7 @@ const SectionTitle = styled.h2`
 `;
 
 const SectionDescription = styled.p`
-  color: #000;
+  color: #fcf9f9;
   font-size: 1.75rem;
   max-width: 700px;
   margin: 0 auto 40px;
@@ -167,7 +168,7 @@ const HighlightText = styled.div`
   p {
     font-family: 'Sevillana', cursive;
     font-size: 2rem;
-    color: #050505;
+    color: #f8f7f7;
 
     @media (max-width: 768px) {
       font-size: 1.4rem;
@@ -195,7 +196,7 @@ const HighlightText = styled.div`
 `;
 
 const HighlightImage = styled.img`
-  width: 100%;
+  width: 85%;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -224,7 +225,7 @@ const Home = () => {
     <>
       <HeroSector>
         <video autoPlay loop muted playsInline className="hero-video">
-          <source src="/videos/shanvilla2.mp4" type="video/mp4" />
+          <source src="/videos/shanvilla.mp4" type="video/mp4" />
         </video>
         <HeroContent>
           <HeroSection>
@@ -232,7 +233,7 @@ const Home = () => {
 
              <HeroOverlay>
   <img
-    src={dis5}
+    src={logo}
     alt="Shanvilla Resort"
     style={{
       width: '100%',
@@ -250,9 +251,10 @@ const Home = () => {
 
 
               <HeroParagraph>
-                <h1>Place for you</h1>
-                Your luxury peaceful destination
-              </HeroParagraph>
+  <h1>After Dark</h1>
+  <span>Luxury. Music. Mood.</span>
+</HeroParagraph>
+
 
               <Link to="/about">
                 <Button>
@@ -262,52 +264,56 @@ const Home = () => {
             </HeroContent>
           </HeroSection>
 
-          <HeroParagraph>
-            Discover distinctive African luxury at Shanvilla — where elegance, culture, and
-            nature come together for unforgettable stays across Kenya.
-          </HeroParagraph>
+         <HeroParagraph>
+  Where sizzling flavors,handcrafted drinks, and unforgettable vibes come together for the ultimate night out.
+</HeroParagraph>
+
         </HeroContent>
       </HeroSector>
 
-      <section className="py-5 bg-white">
+      <section className="py-5 bg-white gallery-container">
         <div className="container text-center mb-5">
-          <SectionTitle>Discover Shanvilla</SectionTitle>
-          <div style={{ width: '90px', height: '4px', backgroundColor: '#d97706', margin: '0 auto 10px' }}></div>
-          <SectionDescription>
-            Experience the perfect blend of luxury, comfort, and natural beauty at our exclusive resort. Every detail has been carefully curated to ensure an unforgettable stay.
-          </SectionDescription>
+          <SectionTitle>Discover X Nightlife Lounge</SectionTitle>
+          <div className="text-light" style={{ width: '220px', height: '4px', backgroundColor: '#2606d9ff', margin: '0 auto 10px' }}></div>
+         <SectionDescription>
+  Experience the ultimate fusion of bold flavors, vibrant vibes, and unforgettable nights
+  at XNightlife Lounge and Grill — every detail crafted to make your evening extraordinary.
+</SectionDescription>
+
         </div>
 
         <div className="container">
           {[
             {
-              title: "Luxury Accommodation",
-              desc: "Indulge in our meticulously designed suites and villas with breathtaking views.",
-              linkText: "Explore Rooms",
-              linkHref: "/rooms",
-              img: dis1
-            },
+  title: "Parties & Events",
+  desc: "Join our themed nights, live DJ sessions, and special events for a night to remember.",
+  linkText: "View our events",
+  linkHref: "/gallery",
+  img: pic4
+},
             {
-              title: "Outdoor Gardens",
-              desc: "Rejuvenate your body and mind with fresh peace and freshness in our annah gardens.",
-              linkText: "Discover Garden",
-              linkHref: "/gallery",
-              img: dis2
-            },
-            {
-              title: "Fine Dining",
-              desc: "Savor exquisite cuisine prepared by our world-class chefs using local ingredients.",
-              linkText: "View Restaurants",
-              linkHref: "/gallery",
-              img: dis3
-            },
-            {
-              title: "Exclusive Experiences",
-              desc: "Create unforgettable memories with our curated collection of activities.",
-              linkText: "Explore Activities",
-              linkHref: "/gallery",
-              img: dis4
-            }
+  title: "Chill Lounge Spots",
+  desc: "Kick back in our comfy lounge areas with friends, sip on your favorite drinks, and let the music set the mood for an unforgettable night.",
+  linkText: "",
+  linkHref: "/seating",
+  img: pic1
+},
+{
+  title: "Signature Drinks",
+  desc: "Sip on expertly crafted cocktails, chilled beers, and exclusive drinks that keep the energy flowing all night long.",
+  linkText: "Check Out the Gallery",
+  linkHref: "/gallery",
+  img: pic16
+},
+{
+  title: "Grill & Snacks",
+  desc: "Indulge in tasty bar bites and sizzling grill specials that pair perfectly with cocktails, keeping your night flavorful and fun.",
+  linkText: "",
+  linkHref: "/menu",
+  img: pic3
+}
+
+
           ].map((item, index) => (
             <div className="row align-items-center mb-5" key={item.title}>
               <div className={`col-12 col-md-6 ${index % 2 !== 0 ? 'order-md-2' : ''}`}>

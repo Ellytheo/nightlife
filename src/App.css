@@ -51,7 +51,7 @@
   text-align: center;
   padding: 2rem 1.5rem;
   border-radius: 1rem;
-  background: #fffefc;
+  background: #fcfdfd;
   box-shadow: 0 10px 20px rgba(198, 163, 85, 0.15);
   transition: box-shadow 0.4s ease, transform 0.3s ease;
   border: 1px solid transparent;
@@ -59,7 +59,7 @@
 
 .amenity-card:hover {
   border: 1px solid #C6A355;
-  box-shadow: 0 20px 40px rgba(198, 163, 85, 0.35);
+  box-shadow: 0 30px 40px rgba(198, 163, 85, 0.35);
   transform: translateY(-6px);
 }
 
@@ -290,9 +290,16 @@
 }
 
 .gallery-container {
-  background-color: #58d9eb;
+ background: linear-gradient(
+    135deg,
+    #14253a 20%,
+    #081835 30%,
+    #1a5e13 75%,
+    #1a0a33 100%
+  );
   text-align: center;
 }
+
 
 .gallery-container h2 {
   font-size: 2rem;

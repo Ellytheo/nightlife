@@ -29,6 +29,11 @@ const FontTest = () => {
       <h1 style={{ fontFamily: "'Inspiration', cursive" }}>Inspiration</h1>
       <h1 style={{ fontFamily: "'Mr Bedfort', cursive" }}>Mr Bedfort</h1>
       <h1 style={{ fontFamily: "'Kalnia Glaze', cursive" }}>Kolnia Glaze</h1>
+      <h1 style={{ fontFamily: "'Dancing Script', cursive" }}>Dancing Script</h1>
+      <h1 style={{ fontFamily: "'Great Vibes', cursive" }}>Great Vibes</h1>
+      <h1 style={{ fontFamily: "'Pacifico', cursive" }}>Pacifico</h1>
+      <h1 style={{ fontFamily: "'Lobster', cursive" }}>Lobster</h1>
+      <h1 style={{ fontFamily: "'Amatic SC', cursive" }}>Amatic SC</h1>
     </div>
   );
 };

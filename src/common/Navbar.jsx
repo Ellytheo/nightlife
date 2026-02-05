@@ -1,21 +1,27 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { IoCloseOutline, IoMenuOutline } from 'react-icons/io5';
-import styled, { keyframes } from 'styled-components';
+import React, { useState } from "react";
+import { NavLink, Link } from "react-router-dom";
+import { IoCloseOutline, IoMenuOutline } from "react-icons/io5";
+import styled, { keyframes } from "styled-components";
 
-// --- Animations ---
+/* ---------------- Animations ---------------- */
 const pulse = keyframes`
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 `;
 
-// --- Styled Components ---
+/* ---------------- Styled Components ---------------- */
 
 const NavContainer = styled.nav`
   position: sticky;
   top: 0;
-  background: linear-gradient(135deg, #87CEEB, #00BFFF);
+  background: linear-gradient(
+    135deg,
+    #14253a 20%,
+    #0e3681 30%,
+    #1a5e13 75%,
+    #1a0a33 100%
+  );
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 `;
@@ -24,49 +30,22 @@ const NavContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 8px 16px;
-  box-sizing: border-box;
-
-  @media (max-width: 483px) {
-    flex-direction: ${({ open }) => (open ? 'column' : 'row')};
-    align-items: ${({ open }) => (open ? 'flex-start' : 'center')};
-    gap: ${({ open }) => (open ? '10px' : '0')};
-  }
-
 `;
 
 const Logo = styled(Link)`
-  font-size: 35px;
+  font-size: 39px;
   font-weight: bold;
-  color: #fff;
+  color: #e41616;
   text-decoration: none;
-  padding: 0px 15px;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    border-radius: 30px;
-    transform: scale(0);
-    opacity: 0;
-    transition: all 0.3s ease;
-    z-index: -1;
-  }
+  padding: 0 15px;
 
   p {
     margin: 0;
-    font-size: 25px;
-    line-height: 1;
+    font-size: 30px;
+    line-height: 0.8;
   }
 `;
 
@@ -79,25 +58,23 @@ const NavLinks = styled.div`
   }
 `;
 
-const NavLink = styled(Link)`
+/* 🔥 ACTIVE-AWARE NAV LINK */
+const StyledNavLink = styled(NavLink)`
   color: #fff;
   font-family: "My Soul", cursive;
   font-size: 25px;
-  text-decoration: none;
   font-weight: 500;
   padding: 10px 20px;
   border-radius: 30px;
-  transition: all 0.3s ease;
+  text-decoration: none;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: white;
     border-radius: 30px;
     transform: scale(0);
@@ -107,8 +84,19 @@ const NavLink = styled(Link)`
   }
 
   &:hover {
-    color: rgb(255, 0, 0);
+    color: red;
     animation: ${pulse} 0.6s;
+
+    &::before {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  &.active {
+    color: red;
+    font-weight: 600;
+
     &::before {
       transform: scale(1);
       opacity: 1;
@@ -116,142 +104,106 @@ const NavLink = styled(Link)`
   }
 `;
 
+/* ---------------- Mobile Sidebar ---------------- */
 
-const RadialNav = styled.div`
+const HamburgerButton = styled.button`
   display: none;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
 
   @media (max-width: 768px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin-left: 10px;
+    display: block;
   }
 `;
 
-const GridContainer = styled.div`
-  position: relative;
-  top:50%;
-  right:80%;
-  width: 160px;
-  height: 160px;
-  transform: translate(0, 0);
-
-  @media (max-width: 483px) {
-    right: ${({ open }) => (open ? '30%' : '-10%')};
-`;
-
-const CenterIcon = styled.button`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #444;
-  color: white;
-  font-size: 32px;
-  padding: 3px 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 10;
-  border: none;
-`;
-
-const IconBox = styled(Link)`
-  position: absolute;
-  min-width: 70px;
-  padding: 3px 10px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+const Sidebar = styled.div`
+  position: fixed;
+  top: 0;
+  left: ${({ open }) => (open ? "0" : "-250px")};
+  width: 250px;
+  height: 60%;
+  background: #1d3047;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.3);
+  padding-top: 80px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #096cee;
-  user-select: none;
-  opacity: 0;
+  flex-direction: column;
+  gap: 10px;
+  transition: left 0.3s ease;
+  z-index: 2000;
+`;
+
+const SidebarLink = styled(NavLink)`
+  color: #fff;
+  font-size: 22px;
   text-decoration: none;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  white-space: nowrap;
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  &.active {
+    color: red;
+    background-color: #fff;
+    font-weight: bold;
+    width: fit-content;
+  }
 
   &:hover {
-    color: red;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
-  }
-
-  h6 {
-    margin: 0;
-    font-size: 18px;
-    font-family: 'Ole', cursive;
-  }
-
-  &.pos1 { top: 30%; left: 50%; transform: translate(-50%, -50%) translateY(-20px); }
-  &.pos2 { top: 40%; left: 85%; transform: translate(-50%, -50%) translate(8px, 0px); }
-  &.pos3 { top: 60%; left: 85%; transform: translate(-50%, -50%) translate(8px, 5px); }
-  &.pos4 { top: 70%; left: 50%; transform: translate(-50%, -50%) translateY(20px); }
-  &.pos5 { top: 60%; left: 15%; transform: translate(-50%, -50%) translate(-10px, 5px); }
-  &.pos6 { top: 40%; left: 15%; transform: translate(-50%, -50%) translate(-10px, 0px); }
-
-  &.open {
-    opacity: 1;
-    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.1);
   }
 `;
 
-// --- Main Component ---
+/* ---------------- Navbar Component ---------------- */
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <NavContainer>
-      <NavContent open={open}>
-        <Logo style={{ fontFamily: "'Nabla', cursive" }}>
-          Shanvilla<p style={{ fontFamily: "'Allura', cursive" }}>Place for you</p>
+      <NavContent>
+        {/* Logo */}
+        <Logo to="/" style={{ fontFamily: "'Mr Bedfort', cursive" }}>
+          X-Nightlife
+          <p style={{ fontFamily: "'Allura', cursive" }}>
+            Lounge | Grill | Carwash
+          </p>
         </Logo>
 
+        {/* Desktop Links */}
         <NavLinks>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/rooms">Rooms</NavLink>
-          <NavLink to="/amenities">Amenities</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/gallery" className='booki'>Gallery</NavLink>
+          <StyledNavLink to="/" end>
+            Home
+          </StyledNavLink>
+          <StyledNavLink to="/about">About</StyledNavLink>
+          <StyledNavLink to="/amenities">Amenities</StyledNavLink>
+          <StyledNavLink to="/contact">Contact</StyledNavLink>
+          <StyledNavLink to="/gallery">Gallery</StyledNavLink>
         </NavLinks>
 
-        
+        {/* Hamburger for Mobile */}
+        <HamburgerButton onClick={() => setOpen(!open)}>
+          {open ? <IoCloseOutline /> : <IoMenuOutline />}
+        </HamburgerButton>
 
-        <RadialNav>
-          <GridContainer className={open ? "open" : ""}>
-            {[
-              { to: '/about', label: 'About', pos: 'pos1' },
-              { to: '/contact', label: 'Contact', pos: 'pos2' },
-              { to: '/amenities', label: 'Amenities', pos: 'pos3' },
-              { to: '/reviews', label: 'Home', pos: 'pos4' },
-              { to: '/reviews', label: 'Booking', pos: 'pos5' },
-              { to: '/rooms', label: 'Rooms', pos: 'pos6' }
-            ].map(({ to, label, pos }) => (
-              <IconBox
-                key={to}
-                to={to}
-                className={`${pos} ${open ? 'open' : ''}`}
-                role="button"
-                tabIndex={open ? 0 : -1}
-              >
-                <h6>{label}</h6>
-              </IconBox>
-            ))}
-
-            <CenterIcon
-              onClick={() => setOpen(!open)}
-              aria-pressed={open}
-              aria-label={open ? "Close menu" : "Open menu"}
-              type="button"
-            >
-              {open ? <IoCloseOutline size={28} /> : <IoMenuOutline size={28} />}
-            </CenterIcon>
-          </GridContainer>
-        </RadialNav>
+        {/* Sliding Sidebar */}
+        <Sidebar open={open}>
+          <SidebarLink to="/" end onClick={() => setOpen(false)}>
+            Home
+          </SidebarLink>
+          <SidebarLink to="/about" onClick={() => setOpen(false)}>
+            About
+          </SidebarLink>
+          <SidebarLink to="/amenities" onClick={() => setOpen(false)}>
+            Amenities
+          </SidebarLink>
+          <SidebarLink to="/contact" onClick={() => setOpen(false)}>
+            Contact
+          </SidebarLink>
+          <SidebarLink to="/gallery" onClick={() => setOpen(false)}>
+            Gallery
+          </SidebarLink>
+        </Sidebar>
       </NavContent>
     </NavContainer>
   );

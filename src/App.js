@@ -5,7 +5,6 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Reviews from './components/Reviews';
 import Amenities from './components/Amenities';
-import Rooms from './components/Rooms';
 import Navbar from './common/Navbar';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css'; // ✅ correct
@@ -33,7 +32,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/rooms" element={<Rooms />} />
             <Route path="/amenities" element={<Amenities />} />
             <Route path="*" element={<NotFound/>} />
             <Route path="/reviews" element={<Reviews />} />
@@ -45,7 +43,7 @@ function App() {
             <Route path="/terms" element={<TermsAndPrivacy />} />
           </Routes>
            <CookieBanner /> {/* 👈 place here */}
-          <ChatBot />
+          
           <Footer />
       </div>
      </BrowserRouter>

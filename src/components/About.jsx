@@ -2,12 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import logo from '../images/logo2.jpg';
+import logo from '../images/logo1.png';
 // === Styled Components ===
 
 const AboutSection = styled.section`
   padding: 40px 20px;
-
+  background: linear-gradient(
+    135deg,
+    #14253a 20%,
+    #081835 30%,
+    #1a5e13 75%,
+    #1a0a33 100%
+  );
   @media (max-width: 768px) {
     padding: 60px 30px;
   }
@@ -45,9 +51,10 @@ const TextContent = styled.div`
 
   p {
     margin-bottom: 20px;
-    line-height: 1.6;
-    font-size: clamp(1.1rem, 2vw, 1.75rem);
-    font-family: 'My Soul', cursive;
+    line-height: 1.1;
+    font-size: clamp(1.6rem, 2.5vw, 3rem);
+    font-family: 'Sevillana', cursive;
+    color: #f7f6f6;
   }
 `;
 
@@ -82,13 +89,19 @@ const VideoElement = styled.video`
 
 
 export const StorySection = styled.section`
-  background-color: rgb(255, 254, 251);
+  background: linear-gradient(
+    135deg,
+    #14253a 20%,
+    #081835 30%,
+    #1a5e13 75%,
+    #1a0a33 100%
+  );
   padding: 50px 30px;
   margin: 1px auto;
   max-width: 960px;
   border-radius: 30px;
   box-shadow: 0 8px 20px rgba(255, 209, 134, 0.15);
-  color: #4a4a4a;
+  color: #f7f6f6;
   text-align: center;
 
   h2 {
@@ -101,15 +114,15 @@ export const StorySection = styled.section`
   }
 
   p {
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: clamp(1rem, 2vw, 3rem);
     line-height: 1.85;
     white-space: pre-line;
     margin-bottom: 24px;
-    font-family: "Kaushan Script", cursive;
+    font-family: "Sevillana", cursive;
   }
 
   strong {
-    color: #ffd166;
+    color: #10c7e7;
   }
 
   @media (max-width: 768px) {
@@ -135,17 +148,16 @@ const About = () => {
         <SectionTitle>Our Story</SectionTitle>
 
         <ContentGrid>
-          <TextContent>
-            <p>
-              Our story is one of heritage, harmony, and homegrown excellence. As a proudly Kenyan
-              brand, Shanvilla represents more than just a collection of exquisite properties—it is a
-              celebration of family, culture, and the diverse beauty of our land.
-            </p>
-            <p>
-              Every stay with us is a tribute to over 50 years of tradition, personalized care, and
-              deep-rooted respect for nature and community.
-            </p>
-          </TextContent>
+         <TextContent>
+  <p>
+    At X Nightlife Lounge, the night doesn’t just happen — it’s created. From smooth sounds to
+    electric vibes, we bring together music, drinks, and atmosphere for nights worth remembering.
+  </p>
+  <p>
+    Whether you’re here to chill, celebrate, or party till late, our space is designed to match
+    your mood and elevate every moment after sunset.
+  </p>
+</TextContent>
 
           <ImageContainer>
             <AboutImage 
@@ -156,7 +168,7 @@ const About = () => {
         </ContentGrid>
         <ImageContainer>
 <VideoElement
-  src="/videos/shanvilla.mp4"
+  src="/videos/vid1.mp4"
   muted
   autoPlay
   loop
@@ -170,39 +182,40 @@ const About = () => {
 
 <StorySection>
   <p>
-    Welcome to Distinctive African Luxury and Warmth. Discover a world of elegance,
-    comfort, and authenticity with Shanvilla Hotel and Resorts—your premier destination
-    for remarkable stays in Kenya.
+    Welcome to X Nightlife Lounge — where Murang’a’s nights come alive. Step into a space
+    defined by sound, style, and atmosphere, crafted for unforgettable evenings and
+    electric energy.
   </p>
 
   <hr />
 
   <p>
-    Nestled in some of the country’s most scenic and culturally rich locations, Shanvilla is
-    redefining African hospitality through a seamless blend of luxury, sustainability, and
-    heartfelt service.
+    Set in the heart of town, X Nightlife blends great music, expertly mixed drinks,
+    and a vibrant crowd to create a lounge experience that feels premium, relaxed,
+    and effortlessly cool.
   </p>
 
   <hr />
 
   <p>
-    Whether you seek a safari adventure, coastal bliss, or urban sophistication,
-    Shanvilla ensures every moment is crafted with authenticity and grace.
+    Whether you’re here to unwind after a long day, celebrate with friends, or dance
+    into the late hours, every night at X Nightlife is designed to match your mood.
   </p>
 
   <hr />
 
   <p>
-    At Shanvilla, sustainability is not an option—it’s a way of life. Our commitment to the
-    environment and our local communities shapes everything we do.
+    From themed parties and live DJ sets to grill nights and private celebrations,
+    we curate moments that keep the vibe right and the memories lasting.
   </p>
 
   <hr />
 
   <p>
-    <strong>Shanvilla Hotel & Resorts – place for you.</strong>
+    <strong>X Nightlife Lounge — where the night begins.</strong>
   </p>
 </StorySection>
+
 
       </AboutSection>
     </motion.div>
